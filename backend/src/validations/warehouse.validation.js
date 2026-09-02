@@ -13,6 +13,12 @@ const assignParcel = {
   }),
 };
 
+const optimizeRoute = {
+  params: Joi.object().keys({
+    routeId: Joi.string().required(),
+  }),
+};
+
 const addToBatch = {
   ...parcelIdParam,
   body: Joi.object().keys({
@@ -28,6 +34,7 @@ const closeBatch = {
 
 module.exports = {
   assignParcel,
+  optimizeRoute,
   parcelAction: parcelIdParam,
   addToBatch,
   closeBatch,
