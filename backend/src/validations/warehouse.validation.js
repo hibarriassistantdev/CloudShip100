@@ -1,21 +1,34 @@
 const Joi = require('joi');
 
-const assignParcel = {
+const parcelIdParam = {
   params: Joi.object().keys({
     parcelId: Joi.string().required(),
   }),
+};
+
+const assignParcel = {
+  ...parcelIdParam,
   body: Joi.object().keys({
     employeeId: Joi.string().trim(),
   }),
 };
 
-const optimizeRoute = {
+const addToBatch = {
+  ...parcelIdParam,
+  body: Joi.object().keys({
+    batchId: Joi.string().required(),
+  }),
+};
+
+const closeBatch = {
   params: Joi.object().keys({
-    routeId: Joi.string().required(),
+    batchId: Joi.string().required(),
   }),
 };
 
 module.exports = {
   assignParcel,
-  optimizeRoute,
+  parcelAction: parcelIdParam,
+  addToBatch,
+  closeBatch,
 };

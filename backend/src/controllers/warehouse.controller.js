@@ -26,9 +26,24 @@ const autoAssignRoutes = catchAsync(async (req, res) => {
   res.send({ routes });
 });
 
-const optimizeRoute = catchAsync(async (req, res) => {
-  const route = await warehouseService.optimizeRoute(req.params.routeId);
-  res.send(route);
+const labelParcel = catchAsync(async (req, res) => {
+  const parcel = await warehouseService.labelParcel(req.params.parcelId);
+  res.send(parcel);
+});
+
+const addParcelToBatch = catchAsync(async (req, res) => {
+  const parcel = await warehouseService.addParcelToBatch(req.params.parcelId, req.body.batchId);
+  res.send(parcel);
+});
+
+const closeBatch = catchAsync(async (req, res) => {
+  const batch = await warehouseService.closeBatch(req.params.batchId);
+  res.send(batch);
+});
+
+const dispatchParcel = catchAsync(async (req, res) => {
+  const parcel = await warehouseService.dispatchParcel(req.params.parcelId);
+  res.send(parcel);
 });
 
 module.exports = {
@@ -37,5 +52,8 @@ module.exports = {
   assignParcel,
   autoAssignParcels,
   autoAssignRoutes,
-  optimizeRoute,
+  labelParcel,
+  addParcelToBatch,
+  closeBatch,
+  dispatchParcel,
 };

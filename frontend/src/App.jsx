@@ -134,6 +134,7 @@ export default function App() {
             <Route path="payments" element={<CustomerPaymentsPage />} />
             <Route path="notifications" element={<CustomerNotificationsPage />} />
             <Route path="account" element={<CustomerAccountPage />} />
+            <Route path="deliveries" element={<CustomerDeliveriesPage />} />
           </Route>
 
           <Route
