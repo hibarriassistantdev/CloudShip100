@@ -9,6 +9,13 @@ const assignParcel = {
   }),
 };
 
+const optimizeRoute = {
+  params: Joi.object().keys({
+    routeId: Joi.string().required(),
+  }),
+};
+
 module.exports = {
   assignParcel,
+  optimizeRoute,
 };

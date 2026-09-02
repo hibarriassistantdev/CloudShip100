@@ -26,10 +26,16 @@ const autoAssignRoutes = catchAsync(async (req, res) => {
   res.send({ routes });
 });
 
+const optimizeRoute = catchAsync(async (req, res) => {
+  const route = await warehouseService.optimizeRoute(req.params.routeId);
+  res.send(route);
+});
+
 module.exports = {
   getSnapshot,
   listRegisteredDrivers,
   assignParcel,
   autoAssignParcels,
   autoAssignRoutes,
+  optimizeRoute,
 };

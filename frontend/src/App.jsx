@@ -38,7 +38,7 @@ import AeroplanesPage from './pages/assets/AeroplanesPage'
 import AirEquipmentPage from './pages/assets/AirEquipmentPage'
 import CrewPage from './pages/assets/CrewPage'
 import CustomerAccountPage from './pages/customer/CustomerAccountPage'
-import CustomerDeliveriesPage from './pages/customer/CustomerDeliveriesPage'
+import CustomerNewBookingPage from './pages/customer/CustomerNewBookingPage'
 import CustomerOverviewPage from './pages/customer/CustomerOverviewPage'
 import CustomerTrackingPage from './pages/customer/CustomerTrackingPage'
 import CustomerDocumentsPage from './pages/customer/CustomerDocumentsPage'
@@ -125,6 +125,7 @@ export default function App() {
           >
             <Route index element={<Navigate to="overview" replace />} />
             <Route path="overview" element={<CustomerOverviewPage />} />
+            <Route path="new-booking" element={<CustomerNewBookingPage />} />
             <Route path="tracking" element={<CustomerTrackingPage />} />
             <Route path="documents" element={<CustomerDocumentsPage />} />
             <Route path="bookings" element={<CustomerBookingHistoryPage />} />
@@ -133,22 +134,6 @@ export default function App() {
             <Route path="payments" element={<CustomerPaymentsPage />} />
             <Route path="notifications" element={<CustomerNotificationsPage />} />
             <Route path="account" element={<CustomerAccountPage />} />
-          </Route>
-          <Route path="deliveries" element={<CustomerDeliveriesPage />} />
-          <Route
-            path="/driver"
-            element={
-              <RequireAuth role="driver">
-                <DriverLayout />
-              </RequireAuth>
-            }
-          >
-            <Route index element={<Navigate to="trips" replace />} />
-            <Route path="profile" element={<DriverProfilePage />} />
-            <Route path="parcels" element={<DriverParcelsPage />} />
-            <Route path="trips" element={<DriverTripsPage />} />
-            <Route path="damage-logs" element={<DriverDamageLogsPage />} />
-            <Route path="history" element={<DriverHistoryPage />} />
           </Route>
 
           <Route
