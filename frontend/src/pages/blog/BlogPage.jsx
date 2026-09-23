@@ -151,9 +151,21 @@ export default function BlogPage() {
                     <div className="aspect-[16/10] overflow-hidden rounded-md bg-brand-light">
                       {image ? <img src={image} alt="" className="h-full w-full object-cover" /> : null}
                     </div>
-                    <h2 className="mt-3 text-sm font-extrabold leading-snug tracking-tight text-ink group-hover:text-brand sm:text-base">
-                      {label}
+                    {post.keyword ? (
+                      <div className="mt-3">
+                        <span className="inline-block rounded-full bg-brand-light px-2 py-0.5 text-[11px] font-semibold text-brand">
+                          {post.keyword}
+                        </span>
+                      </div>
+                    ) : null}
+                    <h2 className="mt-2 text-sm font-extrabold leading-snug tracking-tight text-ink group-hover:text-brand sm:text-base">
+                      {post.title || label}
                     </h2>
+                    {post.excerpt ? (
+                      <p className="mt-1.5 line-clamp-2 text-xs text-muted leading-relaxed">
+                        {post.excerpt}
+                      </p>
+                    ) : null}
                   </Link>
                 </li>
               )
